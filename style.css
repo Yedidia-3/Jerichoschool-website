@@ -1,0 +1,388 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins;
+}
+#container{
+    min-height: 100vh;
+    width: 1351px;
+
+}
+.navSection{
+    background-color: white;
+    height: 6rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+}
+.navLinksSection{
+    margin: 0 auto;
+    
+}
+ul{
+    list-style: none;
+    gap: 50px;
+}
+ a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    width: max-content;
+    position: relative;
+ }
+ a::after{
+    content: '';
+    background: rgb(8, 8, 53);
+    width: 0;
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 100ms;
+ }
+ a:hover::after{
+    width: 100%;
+ }
+
+.logoAndName{
+    display: flex;
+    width: 40% ;
+}
+#schoolName{
+    align-self: center;
+}
+#navLogo{
+    height: auto;
+    width: 13%;
+}
+ul {
+    display: flex;
+    text-decoration: none;
+}
+
+
+/* hero section */
+.hero{
+    width: 100%;
+}
+#heroPicture1{
+    object-fit: cover;
+    width: 100%;
+    height: 60%;
+    position: relative;
+}
+#heroTitle{
+    color: white;
+    position: absolute;
+    margin-top: -260px;
+    font-size: 40px;
+    left: 150px;
+}
+#competenceText{
+    position: absolute;
+    font-size: 20px;
+    /* font-weight: bold; */
+    margin-top: -215px;
+    left: 155px;
+    color: white;
+}
+
+/* About Us section */
+
+.aboutUsSection{
+    background-color: linear-gradient(45deg, #f8f9fa, #e8f5e8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 3px solid red; */
+}   
+.whyTitle{
+    color: rgb(8, 8, 53);
+    width: max-content;
+    position: relative;
+}
+.whyTitle::after{
+    content: '';
+    background: rgb(8, 8, 53);
+    width: 100%;
+    height: 4px;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    transition: 300ms;
+}
+.whyTitle:hover::after{
+    width: 0;
+}
+.carouselTrack{
+    display: flex;
+    align-items: center;
+    will-change: transform;
+}
+.cardSection{
+    overflow: hidden;
+    width: 1200px;
+    position: relative;
+    height: 330px;
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+.cardPictures{
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    border: 3px solid rgb(8, 8, 53);
+    border-radius: 10px;
+    /* box-shadow: 10px 10px 10px rgb(170, 168, 168); */
+    position: relative;
+    
+}
+.cards{
+    min-width: 300px;
+    /* margin-right: 15px; */
+    background: white;
+    /* border-radius: 10px; */
+    display: flex;
+    align-items: center;
+}
+
+.levelsSection{
+    /* border: 1px solid red; */
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+
+}
+.levelsCards{
+    /* border: 1px solid red; */
+    width: 720px;
+    display: grid;
+    grid-template-columns: 25rem 25rem;
+    margin-top: 50px;
+}
+.levels{
+    height: 20rem;
+    width: 20rem;
+    
+   
+}
+.levelsPicture{
+    height: 20rem;
+    width: 20rem;
+    object-fit: cover;
+    border: 4px solid rgb(8, 8, 53);
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgb(170, 168, 168);
+    
+}
+.levelsPicture:hover{
+    transform: translateY(-12px) ;
+
+}
+
+
+/* contact Us section */
+
+footer{
+    height: 30rem;
+    background-color: rgb(8, 8, 53);
+    color: white;
+    display: flex;
+    height: 35rem;
+    width: 100%;
+    
+}
+.leftFooter{
+    width: 50%;
+    height: 35rem;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 100px;
+}
+.rightFooter{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#blurb{
+    font-style: italic;
+    font-weight: lighter;
+}
+#blurbHeader{
+    font-size: 30px;
+
+}
+#blurbParagraph{
+    font-size: 14px;
+    margin-top: 20px;
+    width: 400px;
+    text-align: center;
+}
+#roadAddress{
+    font-weight: lighter;
+}
+.address{
+    margin-top: 10px;
+}
+.Contacts{
+    color: white;
+    font-weight: lighter;
+    display: flex;
+    flex-direction: column;
+}
+.leaveMessage{
+    display: flex;
+    flex-direction: column;
+    background-color: hsla(0, 0%, 100%,0.2);
+    border-radius: 20px;
+    width: 25rem;
+    height: 25rem;
+    justify-content: center;
+    box-shadow: 5px 5px 5px hwb(256 25% 0%);
+}
+input{
+    width: 23rem;
+    margin-top: 20px;
+    height: 3rem;
+    border-radius: 10px;
+    border: none;
+    align-self: center;
+    box-shadow: 5px 5px 5px hwb(256 25% 0%);
+    padding: 10px;
+
+}
+#send{
+    width: 6rem;
+    height: 3rem;
+    border-radius: 10px;
+    border: none;
+    margin: 20px 20px;
+    box-shadow: 5px 5px 5px hwb(256 25% 0%);
+    color: black;
+    font-weight: bold;
+    
+}
+#yourMessage{
+    height: 5rem;
+}
+#emailLink{
+    color: white;
+    font-weight: lighter;
+}
+#locationLink{
+    color: white;
+}
+#hours{
+    font-weight: lighter;
+    
+}
+h5{
+    font-size: 20px;
+    margin-top: -250px;
+    margin-left: 110px;
+    color: rgb(8, 8, 53);
+    text-shadow: 5px 5px 5px cyan;
+    position: absolute;
+
+}
+
+h6{
+    margin-right: -50px;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 90px;
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(8, 8, 53);
+    text-shadow: 5px 5px 5px cyan;
+}
+.iconAndText{
+    display: flex;
+    gap: 10px;
+}
+#clock{
+    height: 1.5em;
+    width: 1.5em;
+    /* margin-top: 5px; */
+    object-fit: cover;
+}
+#email{
+    height: 1.5em;
+    width: 1.5em;
+    margin-top: 5px;
+}
+#location{
+    height: 1.5em;
+    width: 1.5em;
+}
+.telephone{
+    height: 1.5em;
+    width: 1.5em;
+}
+
+#followUs{
+    color: white;
+    font-size: 25px;
+    justify-self: center;
+}
+.socialMedia{
+    height: 3em;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#linkedInIcon{
+    height: 2em;
+}
+#X-icon{
+    height: 2.4em;
+    margin-top: -3px;
+
+}
+#youtubeIcon{
+    height: 3em;
+    margin-top: -8px;
+}
+
+.copyright{
+    background-color: rgb(8, 8, 53);
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.icons{
+    width: 400px;
+    background-color: hsla(0, 0%, 100%,0.2);
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px hwb(256 25% 0%);
+    
+    margin-top: 20px;
+}
+#copyright{
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+.siteMap{
+    font-weight: bold;
+    font-size: 35px;
+}
+.map{
+    color: white;
+}
+
