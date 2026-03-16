@@ -10,8 +10,8 @@ import {
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
-import classroomImg from "figma:asset/8e7856a8c0bced5f3d8f6b2a6e8d8ad8f87a54c7.png";
-import uniformImg from "figma:asset/45d74e7dd2b7c0c6f5ee0b5e9d51c0cd6a729849.png";
+import classroomImg from "@/assets/images/nursery.jpg";
+import uniformImg from "@/assets/images/discipline.jpg";
 
 export function Academics() {
   const programs = [
@@ -118,7 +118,7 @@ export function Academics() {
             {programs.map((program, index) => (
               <Card key={index}>
                 <CardContent className="pt-6">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-900 mb-4">
                     {program.icon}
                   </div>
                   <h3 className="mb-2">{program.title}</h3>
@@ -155,19 +155,19 @@ export function Academics() {
                   </p>
                   <ul className="space-y-2">
                     <li className="flex items-start gap-2">
-                      <span className="text-blue-600">•</span>
+                      <span className="text-blue-900">•</span>
                       <span>Basic literacy and numeracy skills</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-blue-600">•</span>
+                      <span className="text-blue-900">•</span>
                       <span>Social and emotional development</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-blue-600">•</span>
+                      <span className="text-blue-900">•</span>
                       <span>Creative play and art activities</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-blue-600">•</span>
+                      <span className="text-blue-900">•</span>
                       <span>Motor skills development</span>
                     </li>
                   </ul>
@@ -186,19 +186,19 @@ export function Academics() {
                   </p>
                   <ul className="space-y-2">
                     <li className="flex items-start gap-2">
-                      <span className="text-blue-600">•</span>
+                      <span className="text-blue-900">•</span>
                       <span>Core subjects: Mathematics, Science, Social Studies, Kinyarwanda, English, and French</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-blue-600">•</span>
+                      <span className="text-blue-900">•</span>
                       <span>Reading and writing proficiency</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-blue-600">•</span>
+                      <span className="text-blue-900">•</span>
                       <span>Music, arts, and physical education</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-blue-600">•</span>
+                      <span className="text-blue-900">•</span>
                       <span>Character education and moral instruction</span>
                     </li>
                   </ul>
@@ -217,19 +217,19 @@ export function Academics() {
                   </p>
                   <ul className="space-y-2">
                     <li className="flex items-start gap-2">
-                      <span className="text-blue-600">•</span>
+                      <span className="text-blue-900">•</span>
                       <span>Advanced courses in all core subjects</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-blue-600">•</span>
+                      <span className="text-blue-900">•</span>
                       <span>Research and project-based learning</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-blue-600">•</span>
+                      <span className="text-blue-900">•</span>
                       <span>Leadership development and public speaking</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-blue-600">•</span>
+                      <span className="text-blue-900">•</span>
                       <span>Exam preparation and study skills</span>
                     </li>
                   </ul>
@@ -256,25 +256,25 @@ export function Academics() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-blue-600 text-sm">✓</span>
+                    <span className="text-blue-900 text-sm">✓</span>
                   </div>
                   <span className="text-gray-700 text-sm sm:text-base">Modern, well-lit classrooms</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-blue-600 text-sm">✓</span>
+                    <span className="text-blue-900 text-sm">✓</span>
                   </div>
                   <span className="text-gray-700 text-sm sm:text-base">Qualified and dedicated teachers</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-blue-600 text-sm">✓</span>
+                    <span className="text-blue-900 text-sm">✓</span>
                   </div>
                   <span className="text-gray-700 text-sm sm:text-base">Interactive learning materials</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-blue-600 text-sm">✓</span>
+                    <span className="text-blue-900 text-sm">✓</span>
                   </div>
                   <span className="text-gray-700 text-sm sm:text-base">Regular assessments and feedback</span>
                 </li>

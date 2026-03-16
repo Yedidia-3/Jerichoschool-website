@@ -2,24 +2,19 @@ import { Link } from "react-router";
 import { BookOpen, Users, Award, Rocket } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
-import heroImg from "figma:asset/57a7f8730ba4767b17ed3e0ac0bcf6c63f88e1b8.png";
-import classroomImg from "figma:asset/8e7856a8c0bced5f3d8f6b2a6e8d8ad8f87a54c7.png";
-import danceImg from "figma:asset/2b1dbd46a0ee6a8d2f36fcf45c2f4bb8e7c97f01.png";
-import performanceImg from "figma:asset/be23749228d123638bb02afbbd37fb54c3877efd.png";
+import heroImg from "@/assets/images/hero.jpg";
+import classroomImg from "@/assets/images/primary.jpg";
+import danceImg from "@/assets/images/culture.jpg";
+import performanceImg from "@/assets/images/entertainment.jpg";
+
+import { HeroSlideshow } from "../components/hero-slideshow";
 
 export function Home() {
   return (
     <div>
       {/* Hero Section */}
       <section className="relative h-[500px] sm:h-[600px] lg:h-[700px] flex items-center justify-center">
-        <div className="absolute inset-0">
-          <img
-            src={heroImg}
-            alt="Jericho School Graduation"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
+        <HeroSlideshow />
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="text-4xl sm:text-5xl md:text-6xl mb-4 sm:mb-6">Welcome to Jericho School</h1>
           <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 max-w-2xl mx-auto">
@@ -27,7 +22,7 @@ export function Home() {
           </p>
           <div className="flex gap-3 sm:gap-4 justify-center flex-wrap">
             <Link to="/apply">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-sm sm:text-base">
+              <Button size="lg" className="bg-blue-900 hover:bg-blue-950 text-sm sm:text-base">
                 Apply Now
               </Button>
             </Link>
@@ -59,7 +54,7 @@ export function Home() {
             <Card>
               <CardContent className="pt-6 text-center">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <BookOpen className="h-6 w-6 text-blue-600" />
+                  <BookOpen className="h-6 w-6 text-blue-900" />
                 </div>
                 <h3 className="mb-2">Academic Excellence</h3>
                 <p className="text-gray-600 text-sm">
@@ -114,19 +109,19 @@ export function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
             <div>
-              <div className="text-3xl sm:text-4xl md:text-5xl text-blue-600 mb-2">800+</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl text-blue-900 mb-2">800+</div>
               <div className="text-gray-600 text-sm sm:text-base">Students</div>
             </div>
             <div>
-              <div className="text-3xl sm:text-4xl md:text-5xl text-blue-600 mb-2">95%</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl text-blue-900 mb-2">95%</div>
               <div className="text-gray-600 text-sm sm:text-base">Success Rate</div>
             </div>
             <div>
-              <div className="text-3xl sm:text-4xl md:text-5xl text-blue-600 mb-2">30+</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl text-blue-900 mb-2">30+</div>
               <div className="text-gray-600 text-sm sm:text-base">Expert Teachers</div>
             </div>
             <div>
-              <div className="text-3xl sm:text-4xl md:text-5xl text-blue-600 mb-2">20+</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl text-blue-900 mb-2">20+</div>
               <div className="text-gray-600 text-sm sm:text-base">Years of Excellence</div>
             </div>
           </div>
@@ -166,7 +161,7 @@ export function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 sm:py-16 bg-blue-600 text-white">
+      <section className="py-12 sm:py-16 bg-blue-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">Ready to Join Our Community?</h2>
           <p className="text-lg sm:text-xl mb-6 sm:mb-8">
@@ -176,7 +171,7 @@ export function Home() {
             <Button
               size="lg"
               variant="outline"
-              className="bg-white text-blue-600 hover:bg-gray-100"
+              className="bg-white text-blue-900 hover:bg-gray-100"
             >
               Start Your Application
             </Button>

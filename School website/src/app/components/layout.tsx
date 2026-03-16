@@ -1,7 +1,7 @@
 import { Link, Outlet, useLocation } from "react-router";
 import { Menu, X, UserCircle } from "lucide-react";
 import { useState } from "react";
-import logoImg from "figma:asset/4b5f6dd21f8a4af1e4a4da2d41b90a24e6d25ca7.png";
+import logoImg from "@/assets/images/logo.png";
 import { Button } from "./ui/button";
 
 export function Layout() {
@@ -42,8 +42,8 @@ export function Layout() {
                   to={link.path}
                   className={`transition-colors ${
                     isActive(link.path)
-                      ? "text-blue-600 font-medium"
-                      : "text-gray-600 hover:text-blue-600"
+                      ? "text-blue-900 font-medium"
+                      : "text-gray-600 hover:text-blue-900"
                   }`}
                 >
                   {link.name}
@@ -57,7 +57,7 @@ export function Layout() {
                 <Button
                   size="sm"
                   variant="outline"
-                  className="border-blue-600 text-blue-600 hover:bg-blue-50"
+                  className="border-blue-900 text-blue-900 hover:bg-blue-50"
                 >
                   <UserCircle className="h-4 w-4 mr-2" />
                   School MIS
@@ -89,8 +89,8 @@ export function Layout() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`transition-colors ${
                     isActive(link.path)
-                      ? "text-blue-600 font-medium"
-                      : "text-gray-600 hover:text-blue-600"
+                      ? "text-blue-900 font-medium"
+                      : "text-gray-600 hover:text-blue-900"
                   }`}
                 >
                   {link.name}
@@ -101,7 +101,7 @@ export function Layout() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-blue-600 font-medium flex items-center gap-2"
+                className="text-blue-900 font-medium flex items-center gap-2"
               >
                 <UserCircle className="h-4 w-4" />
                 Staff MIS Login
@@ -117,7 +117,7 @@ export function Layout() {
       </main>
 
       {/* Google Maps Section */}
-      <section className="bg-blue-600 py-6 sm:py-8">
+      <section className="bg-blue-900 py-6 sm:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl text-center text-white mb-4 sm:mb-6">Find Us</h2>
           <div className="relative w-full h-0 pb-[56.25%] sm:pb-[50%] md:pb-[40%] rounded-lg overflow-hidden shadow-lg">

@@ -86,10 +86,10 @@ export function ApplyNow() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {applicationSteps.map((step, index) => (
               <div key={index} className="text-center">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mx-auto mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-900 mx-auto mb-4">
                   {step.icon}
                 </div>
-                <div className="text-sm text-blue-600 mb-2">Step {index + 1}</div>
+                <div className="text-sm text-blue-900 mb-2">Step {index + 1}</div>
                 <h3 className="mb-2">{step.title}</h3>
                 <p className="text-gray-600 text-sm">{step.description}</p>
               </div>

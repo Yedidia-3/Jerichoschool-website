@@ -1,6 +1,6 @@
 import { Heart, Target, Eye, Users } from "lucide-react";
 import { Card, CardContent } from "../components/ui/card";
-import graduationImg from "figma:asset/57a7f8730ba4767b17ed3e0ac0bcf6c63f88e1b8.png";
+import graduationImg from "@/assets/images/patriotism.jpg";
 
 export function AboutUs() {
   return (
@@ -56,7 +56,7 @@ export function AboutUs() {
             <Card>
               <CardContent className="pt-6">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                  <Target className="h-6 w-6 text-blue-600" />
+                  <Target className="h-6 w-6 text-blue-900" />
                 </div>
                 <h3 className="text-2xl mb-4">Our Mission</h3>
                 <p className="text-gray-700">

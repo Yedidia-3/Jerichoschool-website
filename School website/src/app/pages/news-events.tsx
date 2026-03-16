@@ -1,9 +1,9 @@
 import { Calendar, Clock, MapPin } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
-import graduationImg from "figma:asset/f5da14c7a5bb4fce2afcfa5b3ec6950f9df19603.png";
-import speakerImg from "figma:asset/039fdab221fee4d95d0d3448ba3e06f901d6c609.png";
-import performanceImg from "figma:asset/2b1dbd46a0ee6a8d2f36fcf45c2f4bb8e7c97f01.png";
+import graduationImg from "@/assets/images/competence.jpg";
+import speakerImg from "@/assets/images/languages.jpg";
+import performanceImg from "@/assets/images/entertainment.jpg";
 
 export function NewsEvents() {
   const newsItems = [
@@ -153,7 +153,7 @@ export function NewsEvents() {
       </section>
 
       {/* Calendar Note */}
-      <section className="py-12 sm:py-16 bg-blue-600 text-white">
+      <section className="py-12 sm:py-16 bg-blue-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">Stay Updated</h2>
           <p className="text-lg sm:text-xl mb-4 sm:mb-6">
@@ -165,7 +165,7 @@ export function NewsEvents() {
               placeholder="Enter your email"
               className="flex-1 px-4 py-2 rounded-lg text-gray-900 text-sm sm:text-base"
             />
-            <button className="bg-white text-blue-600 px-6 py-2 rounded-lg hover:bg-gray-100 transition-colors text-sm sm:text-base whitespace-nowrap">
+            <button className="bg-white text-blue-900 px-6 py-2 rounded-lg hover:bg-gray-100 transition-colors text-sm sm:text-base whitespace-nowrap">
               Subscribe
             </button>
           </div>
