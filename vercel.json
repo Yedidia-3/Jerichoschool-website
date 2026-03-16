@@ -1,5 +1,11 @@
 {
   "buildCommand": "cd \"School website\" && npm install && npm run build",
   "outputDirectory": "School website/dist",
-  "installCommand": "npm install --prefix \"School website\""
+  "installCommand": "npm install --prefix \"School website\"",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
