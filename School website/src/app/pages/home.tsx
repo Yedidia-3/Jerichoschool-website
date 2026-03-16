@@ -117,11 +117,11 @@ export function Home() {
               <div className="text-gray-600 text-sm sm:text-base">Success Rate</div>
             </div>
             <div>
-              <div className="text-3xl sm:text-4xl md:text-5xl text-blue-900 mb-2">30+</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl text-blue-900 mb-2">20+</div>
               <div className="text-gray-600 text-sm sm:text-base">Expert Teachers</div>
             </div>
             <div>
-              <div className="text-3xl sm:text-4xl md:text-5xl text-blue-900 mb-2">20+</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl text-blue-900 mb-2">5+</div>
               <div className="text-gray-600 text-sm sm:text-base">Years of Excellence</div>
             </div>
           </div>
