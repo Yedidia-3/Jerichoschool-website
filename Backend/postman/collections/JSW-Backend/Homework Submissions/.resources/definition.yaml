@@ -1,0 +1,9 @@
+$kind: collection
+name: Homework Submissions
+description: Homework submission tracking endpoints
+order: 6000
+auth:
+  type: bearer
+  credentials:
+    - key: token
+      value: '{{authToken}}'

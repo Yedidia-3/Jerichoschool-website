@@ -1,0 +1,33 @@
+$kind: http-request
+name: Create Student
+method: POST
+url: '{{baseUrl}}/api/students'
+order: 1000
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Jane Smith",
+      "email": "jane.smith@student.school.com",
+      "grade": "10th",
+      "dateOfBirth": "2008-05-15",
+      "parentContact": "+1-555-123-4567"
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status code is 201", function () {
+          pm.response.to.have.status(201);
+      });
+
+      pm.test("Response time is less than 2000ms", function () {
+          pm.expect(pm.response.responseTime).to.be.below(2000);
+      });
+
+      pm.test("Response is JSON", function () {
+          pm.response.to.be.json;
+      });

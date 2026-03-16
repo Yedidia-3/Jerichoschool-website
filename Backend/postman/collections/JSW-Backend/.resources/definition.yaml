@@ -1,0 +1,8 @@
+$kind: collection
+name: JSW Backend - Student Management System
+description: API collection for the Student Behavior and Progress Management System
+variables:
+  - key: baseUrl
+    value: 'http://localhost:8080'
+  - key: authToken
+    value: ''

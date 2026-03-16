@@ -1,0 +1,9 @@
+$kind: collection
+name: Students
+description: Student management endpoints
+order: 2000
+auth:
+  type: bearer
+  credentials:
+    - key: token
+      value: '{{authToken}}'

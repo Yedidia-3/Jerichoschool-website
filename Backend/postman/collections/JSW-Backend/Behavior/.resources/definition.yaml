@@ -1,0 +1,9 @@
+$kind: collection
+name: Behavior
+description: Student behavior tracking endpoints
+order: 4000
+auth:
+  type: bearer
+  credentials:
+    - key: token
+      value: '{{authToken}}'
