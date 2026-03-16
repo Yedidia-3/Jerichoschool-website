@@ -11,7 +11,7 @@ export function AboutUs() {
           <img
             src={graduationImg}
             alt="Jericho School students"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-top"
           />
           <div className="absolute inset-0 bg-black/50" />
         </div>
