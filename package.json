@@ -1,0 +1,16 @@
+{
+  "name": "school-system-root",
+  "version": "1.0.0",
+  "description": "Root management for School System",
+  "scripts": {
+    "start": "npm run setup-db && npx concurrently -n \"DB,BACKEND,FRONTEND,MIS\" -c \"magenta,blue,green,yellow\" \"npm run db\" \"npm run backend\" \"npm run frontend\" \"npm run mis\"",
+    "setup-db": "D:\\JSW\\mariadb\\bin\\mysql.exe -u root -e \"CREATE DATABASE IF NOT EXISTS school_db;\" || echo Database already exists or server not running (this is fine if it is the first time)",
+    "db": "D:\\JSW\\mariadb\\bin\\mysqld.exe --console",
+    "backend": "ping 127.0.0.1 -n 6 > nul && cd Backend && java -jar target\\backend-0.0.1-SNAPSHOT.jar",
+    "frontend": "cd \"School website\" && npm run dev",
+    "mis": "npx serve frontEnd -p 8081"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

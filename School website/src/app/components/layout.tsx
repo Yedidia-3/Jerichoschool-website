@@ -50,7 +50,7 @@ export function Layout() {
                 </Link>
               ))}
               <a
-                href="https://mis.jerichoschool.com"
+                href="http://localhost:8081"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -97,7 +97,7 @@ export function Layout() {
                 </Link>
               ))}
               <a
-                href="https://mis.jerichoschool.com"
+                href="http://localhost:8081"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}

@@ -6,12 +6,12 @@ export function AboutUs() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative h-[300px] sm:h-[400px] lg:h-[500px] flex items-center justify-center">
+      <section className="relative h-[350px] sm:h-[450px] lg:h-[650px] flex items-center justify-center">
         <div className="absolute inset-0">
           <img
             src={graduationImg}
             alt="Jericho School students"
-            className="w-full h-full object-cover object-top"
+            className="w-full h-full object-cover object-[center_15%]"
           />
           <div className="absolute inset-0 bg-black/50" />
         </div>

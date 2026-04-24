@@ -1,0 +1,16 @@
+**/node_modules/
+**/dist/
+**/target/
+**/*.class
+*.zip
+mariadb/
+apache-maven-3.9.6/
+.env
+.vercel
+frontEnd/
+setup_db.ps1
+start.bat
+index.html
+style.css
+script.js
+image/
