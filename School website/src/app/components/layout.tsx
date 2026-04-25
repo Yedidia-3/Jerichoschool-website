@@ -1,12 +1,14 @@
 import { Link, Outlet, useLocation } from "react-router";
-import { Menu, X, UserCircle } from "lucide-react";
+import { Menu, X, UserCircle, Sun, Moon } from "lucide-react";
 import { useState } from "react";
 import logoImg from "@/assets/images/logo.png";
 import { Button } from "./ui/button";
+import { useTheme } from "./theme-provider";
 
 export function Layout() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -26,12 +28,16 @@ export function Layout() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
+      <header className="glass sticky top-0 z-50 shadow-sm dark:shadow-slate-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3">
-              <img src={logoImg} alt="Jericho School" className="h-14 w-auto" />
+            <Link to="/" className="flex items-center gap-3 group">
+              <img
+                src={logoImg}
+                alt="Jericho School"
+                className="h-14 w-auto transition-transform duration-300 group-hover:scale-105"
+              />
             </Link>
 
             {/* Desktop Navigation */}
@@ -40,15 +46,29 @@ export function Layout() {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`transition-colors ${
-                    isActive(link.path)
-                      ? "text-blue-900 font-medium"
-                      : "text-gray-600 hover:text-blue-900"
-                  }`}
+                  className={`relative py-1 transition-colors duration-300 ${isActive(link.path)
+                    ? "text-blue-900 dark:text-blue-400 font-medium"
+                    : "text-gray-600 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400"
+                    } after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-blue-900 dark:after:bg-blue-400 after:transition-all after:duration-300 ${isActive(link.path) ? "after:w-full" : "after:w-0 hover:after:w-full"
+                    }`}
                 >
                   {link.name}
                 </Link>
               ))}
+
+              {/* Theme Toggle */}
+              <button
+                onClick={toggleTheme}
+                className="theme-toggle p-2 rounded-full bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-yellow-300 hover:bg-gray-200 dark:hover:bg-slate-600"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+              </button>
+
               <a
                 href="http://localhost:8081"
                 target="_blank"
@@ -57,41 +77,53 @@ export function Layout() {
                 <Button
                   size="sm"
                   variant="outline"
-                  className="border-blue-900 text-blue-900 hover:bg-blue-50"
+                  className="border-blue-900 text-blue-900 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400/10 transition-all duration-300 hover:shadow-md"
                 >
                   <UserCircle className="h-4 w-4 mr-2" />
-                  School MIS
+                  STAFF MIS
                 </Button>
               </a>
             </nav>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden p-2"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </button>
+            {/* Mobile Menu Button + Theme Toggle */}
+            <div className="md:hidden flex items-center gap-2">
+              <button
+                onClick={toggleTheme}
+                className="theme-toggle p-2 rounded-full bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-yellow-300"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+              </button>
+              <button
+                className="p-2"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle menu"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="h-6 w-6 dark:text-gray-200" />
+                ) : (
+                  <Menu className="h-6 w-6 dark:text-gray-200" />
+                )}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Navigation */}
           {isMobileMenuOpen && (
-            <nav className="md:hidden pb-4 flex flex-col gap-4">
+            <nav className="md:hidden pb-4 flex flex-col gap-4 animate-in slide-in-from-top-2 duration-200">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`transition-colors ${
-                    isActive(link.path)
-                      ? "text-blue-900 font-medium"
-                      : "text-gray-600 hover:text-blue-900"
-                  }`}
+                  className={`transition-colors duration-300 pl-2 border-l-2 ${isActive(link.path)
+                    ? "text-blue-900 dark:text-blue-400 font-medium border-blue-900 dark:border-blue-400"
+                    : "text-gray-600 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400 border-transparent"
+                    }`}
                 >
                   {link.name}
                 </Link>
@@ -101,7 +133,7 @@ export function Layout() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-blue-900 font-medium flex items-center gap-2"
+                className="text-blue-900 dark:text-blue-400 font-medium flex items-center gap-2 pl-2"
               >
                 <UserCircle className="h-4 w-4" />
                 Staff MIS Login
@@ -117,10 +149,10 @@ export function Layout() {
       </main>
 
       {/* Google Maps Section */}
-      <section className="bg-blue-900 py-6 sm:py-8">
+      <section className="bg-blue-900 dark:bg-slate-800 py-6 sm:py-8 section-transition">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl text-center text-white mb-4 sm:mb-6">Find Us</h2>
-          <div className="relative w-full h-0 pb-[56.25%] sm:pb-[50%] md:pb-[40%] rounded-lg overflow-hidden shadow-lg">
+          <div className="relative w-full h-0 pb-[56.25%] sm:pb-[50%] md:pb-[40%] rounded-xl overflow-hidden shadow-2xl ring-1 ring-white/10">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3104.7414589226737!2d30.040692900000003!3d-2.0113095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dcafbaba9b1f5b%3A0x27ba1547729b8325!2sJERICHO%20SCHOOL!5e1!3m2!1sen!2srw!4v1773643346394!5m2!1sen!2srw"
               className="absolute top-0 left-0 w-full h-full border-0"
@@ -134,7 +166,7 @@ export function Layout() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white">
+      <footer className="bg-gray-900 dark:bg-slate-950 text-white section-transition">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             <div>
@@ -150,14 +182,14 @@ export function Layout() {
               <h3 className="font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li>
-                  <Link to="/" className="hover:text-white transition-colors">
+                  <Link to="/" className="hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">
                     Home
                   </Link>
                 </li>
                 <li>
                   <Link
                     to="/about"
-                    className="hover:text-white transition-colors"
+                    className="hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block"
                   >
                     About Us
                   </Link>
@@ -165,7 +197,7 @@ export function Layout() {
                 <li>
                   <Link
                     to="/academics"
-                    className="hover:text-white transition-colors"
+                    className="hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block"
                   >
                     Academics
                   </Link>

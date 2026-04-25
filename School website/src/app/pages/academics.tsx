@@ -101,28 +101,28 @@ export function Academics() {
           <div className="absolute inset-0 bg-black/50" />
         </div>
         <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl mb-3 sm:mb-4">Academics</h1>
-          <p className="text-lg sm:text-xl max-w-2xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl mb-3 sm:mb-4 drop-shadow-lg">Academics</h1>
+          <p className="text-lg sm:text-xl max-w-2xl mx-auto drop-shadow-md">
             Quality education building competence and dignity
           </p>
         </div>
       </section>
 
       {/* Programs Overview */}
-      <section className="py-12 sm:py-16">
+      <section className="py-12 sm:py-16 dark:bg-slate-950 section-transition">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-center mb-8 sm:mb-12 dark:text-white">
             Our Academic Programs
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {programs.map((program, index) => (
-              <Card key={index}>
+              <Card key={index} className="glass-card group cursor-default">
                 <CardContent className="pt-6">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-900 mb-4">
+                  <div className="w-14 h-14 bg-blue-100 dark:bg-blue-900/40 rounded-xl flex items-center justify-center text-blue-900 dark:text-blue-400 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-200 dark:group-hover:bg-blue-800/50 group-hover:rotate-3">
                     {program.icon}
                   </div>
-                  <h3 className="mb-2">{program.title}</h3>
-                  <p className="text-gray-600 text-sm">{program.description}</p>
+                  <h3 className="mb-2 dark:text-white">{program.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">{program.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -131,106 +131,106 @@ export function Academics() {
       </section>
 
       {/* Grade Levels */}
-      <section className="py-12 sm:py-16 bg-gray-50">
+      <section className="py-12 sm:py-16 bg-gray-50 dark:bg-slate-900 section-transition">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-center mb-8 sm:mb-12 dark:text-white">
             Programs by Level
           </h2>
           <Tabs defaultValue="nursery" className="w-full">
-            <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3">
-              <TabsTrigger value="nursery">Nursery</TabsTrigger>
-              <TabsTrigger value="primary">Primary</TabsTrigger>
-              <TabsTrigger value="upper">Upper Primary</TabsTrigger>
+            <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3 dark:bg-slate-800">
+              <TabsTrigger value="nursery" className="dark:data-[state=active]:bg-slate-700">Nursery</TabsTrigger>
+              <TabsTrigger value="primary" className="dark:data-[state=active]:bg-slate-700">Primary</TabsTrigger>
+              <TabsTrigger value="upper" className="dark:data-[state=active]:bg-slate-700">Upper Primary</TabsTrigger>
             </TabsList>
             <TabsContent value="nursery" className="mt-8">
-              <Card>
+              <Card className="glass-card dark:border-slate-700">
                 <CardHeader>
-                  <CardTitle>Nursery & Pre-Primary</CardTitle>
+                  <CardTitle className="dark:text-white">Nursery & Pre-Primary</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-700 mb-4">
+                  <p className="text-gray-700 dark:text-gray-300 mb-4">
                     Our early childhood program provides a nurturing environment
                     where young learners develop foundational skills through play,
                     exploration, and structured activities.
                   </p>
                   <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-900">•</span>
-                      <span>Basic literacy and numeracy skills</span>
+                    <li className="flex items-start gap-2 group/item">
+                      <span className="text-blue-900 dark:text-blue-400 transition-transform duration-200 group-hover/item:scale-125">•</span>
+                      <span className="dark:text-gray-300">Basic literacy and numeracy skills</span>
                     </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-900">•</span>
-                      <span>Social and emotional development</span>
+                    <li className="flex items-start gap-2 group/item">
+                      <span className="text-blue-900 dark:text-blue-400 transition-transform duration-200 group-hover/item:scale-125">•</span>
+                      <span className="dark:text-gray-300">Social and emotional development</span>
                     </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-900">•</span>
-                      <span>Creative play and art activities</span>
+                    <li className="flex items-start gap-2 group/item">
+                      <span className="text-blue-900 dark:text-blue-400 transition-transform duration-200 group-hover/item:scale-125">•</span>
+                      <span className="dark:text-gray-300">Creative play and art activities</span>
                     </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-900">•</span>
-                      <span>Motor skills development</span>
+                    <li className="flex items-start gap-2 group/item">
+                      <span className="text-blue-900 dark:text-blue-400 transition-transform duration-200 group-hover/item:scale-125">•</span>
+                      <span className="dark:text-gray-300">Motor skills development</span>
                     </li>
                   </ul>
                 </CardContent>
               </Card>
             </TabsContent>
             <TabsContent value="primary" className="mt-8">
-              <Card>
+              <Card className="glass-card dark:border-slate-700">
                 <CardHeader>
-                  <CardTitle>Primary Level (1-3)</CardTitle>
+                  <CardTitle className="dark:text-white">Primary Level (1-3)</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-700 mb-4">
+                  <p className="text-gray-700 dark:text-gray-300 mb-4">
                     Our primary program builds strong academic foundations while
                     developing character, confidence, and essential life skills.
                   </p>
                   <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-900">•</span>
-                      <span>Core subjects: Mathematics, Science, Social Studies, Kinyarwanda, English, and French</span>
+                    <li className="flex items-start gap-2 group/item">
+                      <span className="text-blue-900 dark:text-blue-400 transition-transform duration-200 group-hover/item:scale-125">•</span>
+                      <span className="dark:text-gray-300">Core subjects: Mathematics, Science, Social Studies, Kinyarwanda, English, and French</span>
                     </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-900">•</span>
-                      <span>Reading and writing proficiency</span>
+                    <li className="flex items-start gap-2 group/item">
+                      <span className="text-blue-900 dark:text-blue-400 transition-transform duration-200 group-hover/item:scale-125">•</span>
+                      <span className="dark:text-gray-300">Reading and writing proficiency</span>
                     </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-900">•</span>
-                      <span>Music, arts, and physical education</span>
+                    <li className="flex items-start gap-2 group/item">
+                      <span className="text-blue-900 dark:text-blue-400 transition-transform duration-200 group-hover/item:scale-125">•</span>
+                      <span className="dark:text-gray-300">Music, arts, and physical education</span>
                     </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-900">•</span>
-                      <span>Character education and moral instruction</span>
+                    <li className="flex items-start gap-2 group/item">
+                      <span className="text-blue-900 dark:text-blue-400 transition-transform duration-200 group-hover/item:scale-125">•</span>
+                      <span className="dark:text-gray-300">Character education and moral instruction</span>
                     </li>
                   </ul>
                 </CardContent>
               </Card>
             </TabsContent>
             <TabsContent value="upper" className="mt-8">
-              <Card>
+              <Card className="glass-card dark:border-slate-700">
                 <CardHeader>
-                  <CardTitle>Upper Primary (4-6)</CardTitle>
+                  <CardTitle className="dark:text-white">Upper Primary (4-6)</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-700 mb-4">
+                  <p className="text-gray-700 dark:text-gray-300 mb-4">
                     Advanced curriculum preparing students for secondary education
                     with emphasis on critical thinking, leadership, and academic excellence.
                   </p>
                   <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-900">•</span>
-                      <span>Advanced courses in all core subjects</span>
+                    <li className="flex items-start gap-2 group/item">
+                      <span className="text-blue-900 dark:text-blue-400 transition-transform duration-200 group-hover/item:scale-125">•</span>
+                      <span className="dark:text-gray-300">Advanced courses in all core subjects</span>
                     </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-900">•</span>
-                      <span>Research and project-based learning</span>
+                    <li className="flex items-start gap-2 group/item">
+                      <span className="text-blue-900 dark:text-blue-400 transition-transform duration-200 group-hover/item:scale-125">•</span>
+                      <span className="dark:text-gray-300">Research and project-based learning</span>
                     </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-900">•</span>
-                      <span>Leadership development and public speaking</span>
+                    <li className="flex items-start gap-2 group/item">
+                      <span className="text-blue-900 dark:text-blue-400 transition-transform duration-200 group-hover/item:scale-125">•</span>
+                      <span className="dark:text-gray-300">Leadership development and public speaking</span>
                     </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-900">•</span>
-                      <span>Exam preparation and study skills</span>
+                    <li className="flex items-start gap-2 group/item">
+                      <span className="text-blue-900 dark:text-blue-400 transition-transform duration-200 group-hover/item:scale-125">•</span>
+                      <span className="dark:text-gray-300">Exam preparation and study skills</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -241,46 +241,46 @@ export function Academics() {
       </section>
 
       {/* Learning Environment */}
-      <section className="py-12 sm:py-16">
+      <section className="py-12 sm:py-16 dark:bg-slate-950 section-transition">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
             <div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 dark:text-white">
                 Our Learning Environment
               </h2>
-              <p className="text-gray-700 mb-4 sm:mb-6 text-sm sm:text-base">
+              <p className="text-gray-700 dark:text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">
                 At Jericho School, we provide a conducive learning environment
                 with bright classrooms, qualified teachers, and a curriculum that
                 balances academic excellence with character development.
               </p>
               <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-blue-900 text-sm">✓</span>
+                <li className="flex items-start gap-3 group">
+                  <div className="w-7 h-7 bg-blue-100 dark:bg-blue-900/40 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-200 dark:group-hover:bg-blue-800/50">
+                    <span className="text-blue-900 dark:text-blue-400 text-sm">✓</span>
                   </div>
-                  <span className="text-gray-700 text-sm sm:text-base">Modern, well-lit classrooms</span>
+                  <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">Modern, well-lit classrooms</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-blue-900 text-sm">✓</span>
+                <li className="flex items-start gap-3 group">
+                  <div className="w-7 h-7 bg-blue-100 dark:bg-blue-900/40 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-200 dark:group-hover:bg-blue-800/50">
+                    <span className="text-blue-900 dark:text-blue-400 text-sm">✓</span>
                   </div>
-                  <span className="text-gray-700 text-sm sm:text-base">Qualified and dedicated teachers</span>
+                  <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">Qualified and dedicated teachers</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-blue-900 text-sm">✓</span>
+                <li className="flex items-start gap-3 group">
+                  <div className="w-7 h-7 bg-blue-100 dark:bg-blue-900/40 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-200 dark:group-hover:bg-blue-800/50">
+                    <span className="text-blue-900 dark:text-blue-400 text-sm">✓</span>
                   </div>
-                  <span className="text-gray-700 text-sm sm:text-base">Interactive learning materials</span>
+                  <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">Interactive learning materials</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-blue-900 text-sm">✓</span>
+                <li className="flex items-start gap-3 group">
+                  <div className="w-7 h-7 bg-blue-100 dark:bg-blue-900/40 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-200 dark:group-hover:bg-blue-800/50">
+                    <span className="text-blue-900 dark:text-blue-400 text-sm">✓</span>
                   </div>
-                  <span className="text-gray-700 text-sm sm:text-base">Regular assessments and feedback</span>
+                  <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">Regular assessments and feedback</span>
                 </li>
               </ul>
             </div>
-            <div className="relative h-[300px] sm:h-[400px] rounded-lg overflow-hidden">
+            <div className="relative h-[300px] sm:h-[400px] rounded-xl overflow-hidden img-hover-zoom shadow-xl dark:shadow-slate-900/50 ring-1 ring-black/5 dark:ring-white/10">
               <img
                 src={uniformImg}
                 alt="Student in uniform"
@@ -292,19 +292,19 @@ export function Academics() {
       </section>
 
       {/* Special Programs */}
-      <section className="py-12 sm:py-16 bg-gray-50">
+      <section className="py-12 sm:py-16 bg-gray-50 dark:bg-slate-900 section-transition">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-center mb-8 sm:mb-12 dark:text-white">
             Special Programs
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {specialPrograms.map((program, index) => (
-              <Card key={index}>
+              <Card key={index} className="glass-card group cursor-default hover-glow">
                 <CardHeader>
-                  <CardTitle>{program.title}</CardTitle>
+                  <CardTitle className="dark:text-white transition-colors duration-300 group-hover:text-blue-900 dark:group-hover:text-blue-400">{program.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600">{program.description}</p>
+                  <p className="text-gray-600 dark:text-gray-400">{program.description}</p>
                 </CardContent>
               </Card>
             ))}
