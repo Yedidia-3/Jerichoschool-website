@@ -69,20 +69,7 @@ export function Layout() {
                 )}
               </button>
 
-              <a
-                href="http://localhost:8081"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button
-                  size="sm"
-                  variant="outline"
-                  className="border-blue-900 text-blue-900 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400/10 transition-all duration-300 hover:shadow-md"
-                >
-                  <UserCircle className="h-4 w-4 mr-2" />
-                  STAFF MIS
-                </Button>
-              </a>
+
             </nav>
 
             {/* Mobile Menu Button + Theme Toggle */}
@@ -128,16 +115,7 @@ export function Layout() {
                   {link.name}
                 </Link>
               ))}
-              <a
-                href="http://localhost:8081"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-blue-900 dark:text-blue-400 font-medium flex items-center gap-2 pl-2"
-              >
-                <UserCircle className="h-4 w-4" />
-                Staff MIS Login
-              </a>
+
             </nav>
           )}
         </div>
