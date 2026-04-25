@@ -145,7 +145,7 @@ export function Academics() {
             <TabsContent value="nursery" className="mt-8">
               <Card className="glass-card dark:border-slate-700">
                 <CardHeader>
-                  <CardTitle className="dark:text-white">Nursery & Pre-Primary</CardTitle>
+                  <CardTitle className="dark:text-white">Nursery</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-700 dark:text-gray-300 mb-4">

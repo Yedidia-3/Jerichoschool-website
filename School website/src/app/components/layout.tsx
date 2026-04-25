@@ -36,7 +36,7 @@ export function Layout() {
               <img
                 src={logoImg}
                 alt="Jericho School"
-                className="h-14 w-auto transition-transform duration-300 group-hover:scale-105"
+                className="h-14 w-auto transition-all duration-300 group-hover:scale-105"
               />
             </Link>
 
