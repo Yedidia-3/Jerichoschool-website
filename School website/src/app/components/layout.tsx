@@ -1,6 +1,6 @@
 import { Link, Outlet, useLocation } from "react-router";
 import { Menu, X, UserCircle, Sun, Moon } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logoImg from "@/assets/images/logo.png";
 import { Button } from "./ui/button";
 import { useTheme } from "./theme-provider";
@@ -9,6 +9,10 @@ export function Layout() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const { theme, toggleTheme } = useTheme();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   const navLinks = [
     { name: "Home", path: "/" },
