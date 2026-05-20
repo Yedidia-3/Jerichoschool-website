@@ -1,0 +1,84 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2026-03-16T03:06:57.602+02:00  INFO 732 --- [           main] com.school.backend.BackendApplication    : Starting BackendApplication v0.0.1-SNAPSHOT using Java 25.0.2 with PID 732 (D:\JSW\Backend\target\backend-0.0.1-SNAPSHOT.jar started by kwame in D:\JSW\Backend)
+2026-03-16T03:06:57.608+02:00  INFO 732 --- [           main] com.school.backend.BackendApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-03-16T03:07:00.007+02:00  INFO 732 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-16T03:07:00.157+02:00  INFO 732 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 127 ms. Found 6 JPA repository interfaces.
+java : WARNING: A 
+restricted method in 
+java.lang.System has 
+been called
+At line:1 char:128
++ ... s -Force }; 
+java -jar target\backe
+nd-0.0.1-SNAPSHOT.jar 
+> boot_log2.t ...
++                 ~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~
+    + CategoryInfo    
+          : 
+NotSpecified: (W    
+ARNING: A rest...has  
+   been 
+called:String) [    
+], RemoteException
+    + 
+FullyQualifiedError   
+ Id : 
+NativeCommandErr    or
+ 
+WARNING: java.lang.Sys
+tem::load has been 
+called by org.apache.t
+omcat.jni.Library in 
+an unnamed module (jar
+:nested:/D:/JSW/Backen
+d/target/backend-0.0.1
+-SNAPSHOT.jar/!BOOT-IN
+F/lib/tomcat-embed-cor
+e-10.1.19.jar!/)
+WARNING: Use --enable-
+native-access=ALL-UNNA
+MED to avoid a 
+warning for callers 
+in this module
+WARNING: Restricted 
+methods will be 
+blocked in a future 
+release unless native 
+access is enabled
+
+2026-03-16T03:07:01.452+02:00  INFO 732 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-16T03:07:01.473+02:00  INFO 732 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-16T03:07:01.476+02:00  INFO 732 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-03-16T03:07:01.538+02:00  INFO 732 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-16T03:07:01.539+02:00  INFO 732 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3703 ms
+2026-03-16T03:07:01.745+02:00  INFO 732 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-16T03:07:02.156+02:00  INFO 732 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@38291795
+2026-03-16T03:07:02.161+02:00  INFO 732 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-16T03:07:02.367+02:00  INFO 732 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-16T03:07:02.525+02:00  INFO 732 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-03-16T03:07:02.596+02:00  INFO 732 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-03-16T03:07:03.240+02:00  INFO 732 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-16T03:07:03.320+02:00  WARN 732 --- [           main] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000339: Could not obtain connection metadata: java.sql.SQLSyntaxErrorException: Unknown column 'RESERVED' in 'where clause'
+2026-03-16T03:07:03.356+02:00  WARN 732 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-16T03:07:05.629+02:00  INFO 732 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-16T03:07:08.427+02:00  INFO 732 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-16T03:07:09.881+02:00  WARN 732 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: fbf591de-f712-4f66-8bca-12234dc0bdcc
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-16T03:07:10.831+02:00  INFO 732 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@356ab368, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3398ed12, org.springframework.security.web.context.SecurityContextHolderFilter@2305aad0, org.springframework.security.web.header.HeaderWriterFilter@34a99d8, org.springframework.web.filter.CorsFilter@c555e1e, org.springframework.security.web.authentication.logout.LogoutFilter@2604940, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7dc963be, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@61c4fc34, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@64e247e, org.springframework.security.web.session.SessionManagementFilter@956cf3d, org.springframework.security.web.access.ExceptionTranslationFilter@215f8d7, org.springframework.security.web.access.intercept.AuthorizationFilter@19d3f4fb]
+2026-03-16T03:07:11.286+02:00  INFO 732 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-03-16T03:07:11.322+02:00  INFO 732 --- [           main] com.school.backend.BackendApplication    : Started BackendApplication in 14.741 seconds (process running for 16.099)

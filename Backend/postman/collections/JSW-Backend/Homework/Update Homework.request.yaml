@@ -1,0 +1,36 @@
+$kind: http-request
+name: Update Homework
+method: PUT
+url: '{{baseUrl}}/api/homework/:id'
+order: 3000
+pathVariables:
+  - key: id
+    value: '1'
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "title": "Chapter 5 Review Questions - Updated",
+      "subject": "Mathematics",
+      "description": "Complete all review questions from Chapter 5, pages 120-130. Include bonus problems.",
+      "dueDate": "2024-01-25",
+      "createdBy": 1
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+
+      pm.test("Response time is less than 2000ms", function () {
+          pm.expect(pm.response.responseTime).to.be.below(2000);
+      });
+
+      pm.test("Response is JSON", function () {
+          pm.response.to.be.json;
+      });

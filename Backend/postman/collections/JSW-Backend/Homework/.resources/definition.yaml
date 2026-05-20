@@ -1,0 +1,9 @@
+$kind: collection
+name: Homework
+description: Homework management endpoints
+order: 5000
+auth:
+  type: bearer
+  credentials:
+    - key: token
+      value: '{{authToken}}'
