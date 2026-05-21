@@ -890,7 +890,9 @@ export function Gateway() {
     const canvas = canvasRef.current;
     canvas.addEventListener("click", handleCanvasClick);
     canvas.addEventListener("touchstart", handleCanvasTouch, { passive: false });
-    // Also listen for touchend to ensure jump on mobile devices where touchstart may be swallowed
+    // Prevent default scrolling on touchmove and disable native touch actions
+    canvas.style.touchAction = "none";
+    canvas.addEventListener("touchmove", (e) => { e.preventDefault(); }, { passive: false });
     canvas.addEventListener("touchend", handleCanvasTouch, { passive: false });
 
     // Responsive screen resize
@@ -912,6 +914,8 @@ export function Gateway() {
       if (canvas) {
         canvas.removeEventListener("click", handleCanvasClick);
         canvas.removeEventListener("touchstart", handleCanvasTouch);
+        canvas.removeEventListener("touchmove", (e) => { e.preventDefault(); });
+        canvas.removeEventListener("touchend", handleCanvasTouch);
       }
       window.removeEventListener("resize", handleResize);
 
