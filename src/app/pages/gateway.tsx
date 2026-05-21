@@ -890,6 +890,8 @@ export function Gateway() {
     const canvas = canvasRef.current;
     canvas.addEventListener("click", handleCanvasClick);
     canvas.addEventListener("touchstart", handleCanvasTouch, { passive: false });
+    // Also listen for touchend to ensure jump on mobile devices where touchstart may be swallowed
+    canvas.addEventListener("touchend", handleCanvasTouch, { passive: false });
 
     // Responsive screen resize
     const handleResize = () => {
@@ -962,7 +964,7 @@ export function Gateway() {
       {/* Three.js Canvas Backdrop */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 z-0 h-full w-full outline-none block cursor-pointer"
+        className="absolute inset-0 z-0 h-full w-full outline-none block cursor-pointer touch-none"
       />
 
       {/* Cyberpunk Grid Overlay */}
