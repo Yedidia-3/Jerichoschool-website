@@ -346,6 +346,28 @@ export function Gateway() {
     }
   };
 
+  // Keyboard controls for jump
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.code === "Space" || e.code === "ArrowUp") {
+        e.preventDefault();
+        triggerJump();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
+  // Double jump helper
+  const triggerDoubleJump = () => {
+    if (doubleJumpRef.current) {
+      doubleJumpRef.current = false;
+      playAudioJump(isMuted, true);
+    }
+  };
+
   // Key and screen click listening
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -1078,6 +1100,9 @@ export function Gateway() {
               <div className="text-center">
                 <p className="text-[9px] sm:text-[10px] text-slate-400 font-bold uppercase tracking-wider">Distance</p>
                 <p className="text-lg sm:text-2xl font-black text-pink-400 drop-shadow">{score}m</p>
+                <Button onClick={triggerJump} className="mt-2 px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 transition">Jump</Button>
+                <Button onClick={triggerDoubleJump} className="mt-2 ml-2 px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600 transition">Double Jump</Button>
+                <Button onClick={triggerJump} className="mt-2 px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 transition">Jump</Button>
               </div>
 
               {highScore > 0 && (
