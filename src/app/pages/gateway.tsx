@@ -1140,7 +1140,20 @@ export function Gateway() {
               </div>
             )}
 
-            {/* Game Over Screen */}
+            {/* In‑game controller overlay */}
+          <div className="absolute inset-0 flex flex-col items-center justify-end pointer-events-none">
+            <div className="flex gap-8 mb-8 pointer-events-auto">
+              <button onClick={() => console.log('Left control - placeholder')} className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full text-3xl font-bold text-white hover:bg-white/30 transition">
+                &lt;
+              </button>
+              <button onClick={triggerJump} className="w-20 h-20 bg-pink-500/80 rounded-full text-4xl font-bold text-white hover:bg-pink-600 transition">
+                ^
+              </button>
+              <button onClick={() => console.log('Right control - placeholder')} className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full text-3xl font-bold text-white hover:bg-white/30 transition">
+                &gt;
+              </button>
+            </div>
+          </div>
             {gameState === "gameover" && (
               <div className="w-full max-w-sm sm:max-w-md p-5 sm:p-8 rounded-3xl border border-white/20 bg-slate-950/85 backdrop-blur-2xl shadow-2xl animate-in zoom-in-95 duration-300 text-center space-y-4 sm:space-y-6">
                 <div className="inline-flex items-center justify-center p-3 sm:p-4 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 animate-bounce">
@@ -1173,12 +1186,13 @@ export function Gateway() {
                 )}
 
                 <div className="flex flex-col gap-2.5 sm:gap-3">
+                  {/* Fresh start button - replaces Run Again */}
                   <Button
-                    onClick={triggerGameMode}
+                    onClick={() => { resetGame(); triggerGameMode(); }}
                     className="w-full py-5 sm:py-6 rounded-xl font-bold bg-gradient-to-r from-pink-500 via-indigo-600 to-amber-500 hover:opacity-90 text-white shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer text-sm sm:text-base"
                   >
                     <RotateCcw className="h-4 w-4 sm:h-5 sm:w-5" />
-                    <span>Run Again</span>
+                    <span>Start Fresh</span>
                   </Button>
 
                   <Button
