@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import { Layout } from "./components/layout";
-import { Gateway } from "./pages/gateway";
+import { Landing } from "./pages/landing";
+
 import { Home } from "./pages/home";
 import { AboutUs } from "./pages/about-us";
 import { NewsEvents } from "./pages/news-events";
@@ -10,7 +11,7 @@ import { ApplyNow } from "./pages/apply-now";
 export const router = createBrowserRouter([
   {
     path: "/",
-    Component: Gateway,
+    Component: Landing,
   },
   {
     path: "/school",
@@ -24,4 +25,3 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
-
