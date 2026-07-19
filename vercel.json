@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/school/:path*",
+      "destination": "/index.html"
+    }
+  ]
+}
