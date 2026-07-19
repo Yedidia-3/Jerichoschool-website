@@ -12,6 +12,13 @@ export default defineConfig({
     tailwindcss(),
     sitemap({
   hostname: 'https://jerichoschool.ac.rw',
+  dynamicRoutes: [
+    '/school',
+    '/school/about',
+    '/school/news-events',
+    '/school/academics',
+    '/school/apply',
+  ],
 }),
   ],
   resolve: {
