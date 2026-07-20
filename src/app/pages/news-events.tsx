@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
 import { Badge } from "../components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router";
 
 interface YouTubeItem {
   id: string;
@@ -23,6 +24,8 @@ export function NewsEvents() {
   const [newsItems, setNewsItems] = useState<YouTubeItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [searchParams] = useSearchParams();
+  const defaultTab = searchParams.get("tab") === "publications" ? "publications" : "news";
 
   const publications: Publication[] = [
     { name: "BABYEYI N1-N2-N3.docx", section: "Nursery Classes (N1-N2-N3)", size: "Download" },
@@ -99,7 +102,7 @@ export function NewsEvents() {
       {/* Tabs Section */}
       <section className="py-12 sm:py-16 dark:bg-slate-950 section-transition">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Tabs defaultValue="news" className="w-full">
+          <Tabs defaultValue={defaultTab} className="w-full">
             <TabsList className="grid w-full max-w-md mx-auto mb-8 grid-cols-2">
               <TabsTrigger value="news">News & Events</TabsTrigger>
               <TabsTrigger value="publications">Publications</TabsTrigger>

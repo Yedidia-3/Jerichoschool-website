@@ -1,5 +1,7 @@
 import { Link, Outlet, useLocation } from "react-router";
 import { Menu, X, UserCircle, Sun, Moon, Sparkles } from "lucide-react";
+import { AnnouncementBar } from "./AnnouncementBar";
+import { announcements, quickLinks } from "../data/announcements";
 import { useState, useEffect } from "react";
 import logoImg from "@/assets/images/logo.png";
 import { Button } from "./ui/button";
@@ -31,6 +33,7 @@ export function Layout() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <AnnouncementBar announcements={announcements} quickLinks={quickLinks} />
       {/* Header */}
       <header className="glass sticky top-0 z-50 shadow-sm dark:shadow-slate-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -165,7 +168,7 @@ export function Layout() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 dark:bg-slate-950 text-white section-transition">
+      <footer id="contact" className="bg-gray-900 dark:bg-slate-950 text-white section-transition">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             <div>
