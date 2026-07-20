@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router";
 import { ChevronRight } from "lucide-react";
+import type { MouseEvent } from "react";
 import { useAnnouncements } from "../hooks/useAnnouncements";
 import type { Announcement, QuickLink } from "../data/announcements";
 
@@ -12,15 +13,13 @@ export function AnnouncementBar({ announcements, quickLinks }: Props) {
   const { current, total, index, visible, pause, resume } = useAnnouncements(announcements);
   const navigate = useNavigate();
 
-  const handleQuickLink = (link: QuickLink, e: React.MouseEvent) => {
+  const handleQuickLink = (link: QuickLink, e: MouseEvent) => {
     if (!link.scrollTo) return;
     e.preventDefault();
-    navigate(link.href).then(() => {
-      // wait one tick for the page to render before scrolling
-      setTimeout(() => {
-        document.getElementById(link.scrollTo!)?.scrollIntoView({ behavior: "smooth" });
-      }, 50);
-    });
+    navigate(link.href);
+    setTimeout(() => {
+      document.getElementById(link.scrollTo!)?.scrollIntoView({ behavior: "smooth" });
+    }, 50);
   };
 
   if (!current) return null;
