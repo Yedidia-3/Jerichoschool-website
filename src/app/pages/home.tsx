@@ -21,12 +21,12 @@ export function Home() {
             Building tomorrow's leaders with competence and dignity
           </p>
           <div className="flex gap-3 sm:gap-4 justify-center flex-wrap">
-            <Link to="/apply">
+            <Link to="/school/apply">
               <Button size="lg" className="bg-blue-900 hover:bg-blue-950 text-sm sm:text-base transition-all duration-300 hover:shadow-xl hover:shadow-blue-900/30 hover:scale-105">
                 Apply Now
               </Button>
             </Link>
-            <Link to="/about">
+            <Link to="/school/about">
               <Button
                 size="lg"
                 variant="outline"

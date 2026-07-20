@@ -264,7 +264,35 @@ export function Gateway() {
   const triggerGameMode = () => {
     setIsGameMode(true);
     setGameState("playing");
-    
+
+    // Clear all existing cacti from the scene
+    const scene = sceneRef.current;
+    if (scene) {
+      cactiRef.current.forEach((c) => {
+        scene.remove(c.group);
+        disposeGroup(c.group);
+      });
+      particlesRef.current.forEach((p) => {
+        scene.remove(p.mesh);
+        p.mesh.geometry.dispose();
+        if (p.mesh.material instanceof THREE.Material) p.mesh.material.dispose();
+      });
+      dustParticlesRef.current.forEach((d) => {
+        scene.remove(d.mesh);
+        d.mesh.geometry.dispose();
+        if (d.mesh.material instanceof THREE.Material) d.mesh.material.dispose();
+      });
+    }
+    cactiRef.current = [];
+    particlesRef.current = [];
+    dustParticlesRef.current = [];
+
+    // Reset dino position and rotation
+    if (dinoGroupRef.current) {
+      dinoGroupRef.current.position.set(-4, -4, 0);
+      dinoGroupRef.current.rotation.z = 0;
+    }
+
     // Reset game physics variables
     scoreRef.current = 0;
     milestoneRef.current = 500;
@@ -327,59 +355,38 @@ export function Gateway() {
     resetInactivityTimer();
   };
 
-  // Dino jumping physics trigger
+  // Stable jump ref — always current, safe to call from any closure
+  const isMutedRef = useRef(isMuted);
+  useEffect(() => { isMutedRef.current = isMuted; }, [isMuted]);
+
   const triggerJump = () => {
     if (gameStateRef.current !== "playing" || !isGameModeRef.current) return;
-
     if (dinoYRef.current === 0) {
-      // Normal ground jump
       dinoVYRef.current = 0.28;
       dinoYRef.current = 0.01;
-      playAudioJump(isMuted, false);
+      playAudioJump(isMutedRef.current, false);
     } else if (doubleJumpRef.current) {
-      // Double jump flip in mid-air
       dinoVYRef.current = 0.26;
       doubleJumpRef.current = false;
       isBackflippingRef.current = true;
       flipRotationRef.current = 0;
-      playAudioJump(isMuted, true);
+      playAudioJump(isMutedRef.current, true);
     }
   };
+  const triggerJumpRef = useRef(triggerJump);
+  useEffect(() => { triggerJumpRef.current = triggerJump; });
 
-  // Keyboard controls for jump
+  // Single keyboard listener — Space / ArrowUp / W
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.code === "Space" || e.code === "ArrowUp") {
+      if (e.code === "Space" || e.code === "ArrowUp" || e.code === "KeyW") {
         e.preventDefault();
-        triggerJump();
+        triggerJumpRef.current();
       }
     };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
-
-  // Double jump helper
-  const triggerDoubleJump = () => {
-    if (doubleJumpRef.current) {
-      doubleJumpRef.current = false;
-      playAudioJump(isMuted, true);
-    }
-  };
-
-  // Key and screen click listening
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.code === "Space" || e.code === "ArrowUp") {
-        e.preventDefault();
-        triggerJump();
-      }
-    };
-
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isGameMode, gameState, isMuted]);
+  }, []);
 
   // Setup Three.js Core
   useEffect(() => {
@@ -893,29 +900,39 @@ export function Gateway() {
 
     animateLoop();
 
-    // Canvas click event (Jump trigger)
+    // Canvas click — only for touch/pointer devices, not desktop mouse
+    // (desktop users use Space/ArrowUp/W; canvas clicks cause accidental double-jumps)
     const handleCanvasClick = (event: MouseEvent) => {
-      // Screen clicks trigger jump in active running state
+      if (event.pointerType === "touch") return; // handled by touchstart already
+      // allow mouse click on desktop as a fallback only
       if (isGameModeRef.current && gameStateRef.current === "playing") {
-        triggerJump();
+        triggerJumpRef.current();
       }
     };
 
-    // Responsive Touch Jumps for Mobile devices
-    const handleCanvasTouch = (event: TouchEvent) => {
+    // Touch: tap = jump, swipe-up = second jump
+    let touchStartY = 0;
+    const handleCanvasTouchStart = (event: TouchEvent) => {
+      event.preventDefault();
+      touchStartY = event.touches[0].clientY;
       if (isGameModeRef.current && gameStateRef.current === "playing") {
-        event.preventDefault();
-        triggerJump();
+        triggerJumpRef.current();
+      }
+    };
+    const handleCanvasTouchEnd = (event: TouchEvent) => {
+      event.preventDefault();
+      const swipeDist = touchStartY - event.changedTouches[0].clientY;
+      if (isGameModeRef.current && gameStateRef.current === "playing" && swipeDist > 30) {
+        triggerJumpRef.current();
       }
     };
 
     const canvas = canvasRef.current;
     canvas.addEventListener("click", handleCanvasClick);
-    canvas.addEventListener("touchstart", handleCanvasTouch, { passive: false });
-    // Prevent default scrolling on touchmove and disable native touch actions
+    canvas.addEventListener("touchstart", handleCanvasTouchStart, { passive: false });
     canvas.style.touchAction = "none";
     canvas.addEventListener("touchmove", (e) => { e.preventDefault(); }, { passive: false });
-    canvas.addEventListener("touchend", handleCanvasTouch, { passive: false });
+    canvas.addEventListener("touchend", handleCanvasTouchEnd, { passive: false });
 
     // Responsive screen resize
     const handleResize = () => {
@@ -935,9 +952,9 @@ export function Gateway() {
       if (requestRef.current) cancelAnimationFrame(requestRef.current);
       if (canvas) {
         canvas.removeEventListener("click", handleCanvasClick);
-        canvas.removeEventListener("touchstart", handleCanvasTouch);
+        canvas.removeEventListener("touchstart", handleCanvasTouchStart);
         canvas.removeEventListener("touchmove", (e) => { e.preventDefault(); });
-        canvas.removeEventListener("touchend", handleCanvasTouch);
+        canvas.removeEventListener("touchend", handleCanvasTouchEnd);
       }
       window.removeEventListener("resize", handleResize);
 
@@ -1100,9 +1117,6 @@ export function Gateway() {
               <div className="text-center">
                 <p className="text-[9px] sm:text-[10px] text-slate-400 font-bold uppercase tracking-wider">Distance</p>
                 <p className="text-lg sm:text-2xl font-black text-pink-400 drop-shadow">{score}m</p>
-                <Button onClick={triggerJump} className="mt-2 px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 transition">Jump</Button>
-                <Button onClick={triggerDoubleJump} className="mt-2 ml-2 px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600 transition">Double Jump</Button>
-                <Button onClick={triggerJump} className="mt-2 px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 transition">Jump</Button>
               </div>
 
               {highScore > 0 && (
@@ -1129,16 +1143,6 @@ export function Gateway() {
 
           {/* Interactive instruction HUD */}
           <main className="flex-1 flex items-center justify-center">
-            {gameState === "playing" && (
-              <div className="text-center pointer-events-none select-none opacity-30 animate-pulse space-y-1 px-4">
-                <p className="text-slate-400 text-xs sm:text-sm tracking-widest uppercase font-black">
-                  Press SPACEBAR, UP-ARROW, or TAP screen to Jump
-                </p>
-                <p className="text-pink-400 text-[9px] sm:text-[10px] tracking-wider uppercase font-bold">
-                  Tap twice mid-air to Double Jump & Backflip!
-                </p>
-              </div>
-            )}
 
             {/* Game Over Screen */}
             {gameState === "gameover" && (
@@ -1194,9 +1198,37 @@ export function Gateway() {
             )}
           </main>
 
-          <footer className="text-center text-[10px] text-slate-500 uppercase tracking-widest font-bold">
-            Double jump triggers a full 360 backflip • Speed increases every 500 meters
-          </footer>
+          {/* On-screen controls: touch buttons (hidden on desktop via hover media query) + desktop hint */}
+          {gameState === "playing" && (
+            <div className="w-full flex items-end justify-between gap-3 px-4 pb-4 sm:pb-6">
+              {/* Desktop hint — only shown on non-touch devices */}
+              <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold hidden [@media(hover:hover)]:block">
+                SPACE / ↑ / W — Jump &nbsp;•&nbsp; Tap twice mid-air to backflip
+              </p>
+              {/* Touch buttons — only shown on touch/no-hover devices */}
+              <div className="flex gap-3 ml-auto [@media(hover:hover)]:hidden">
+                <button
+                  onPointerDown={(e) => { e.preventDefault(); triggerJumpRef.current(); }}
+                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-pink-500/60 bg-pink-500/20 backdrop-blur-md text-white font-black text-sm sm:text-base active:scale-95 active:bg-pink-500/40 transition-all shadow-lg shadow-pink-500/20 select-none touch-none"
+                  aria-label="Jump"
+                >
+                  Jump
+                </button>
+                <button
+                  onPointerDown={(e) => { e.preventDefault(); triggerJumpRef.current(); }}
+                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-indigo-500/60 bg-indigo-500/20 backdrop-blur-md text-white font-black text-[11px] sm:text-sm active:scale-95 active:bg-indigo-500/40 transition-all shadow-lg shadow-indigo-500/20 select-none touch-none"
+                  aria-label="Double Jump"
+                >
+                  2× Jump
+                </button>
+              </div>
+            </div>
+          )}
+          {gameState !== "playing" && (
+            <footer className="text-center text-[10px] text-slate-500 uppercase tracking-widest font-bold pb-4">
+              Double jump triggers a full 360 backflip • Speed increases every 500 meters
+            </footer>
+          )}
         </div>
       )}
 
