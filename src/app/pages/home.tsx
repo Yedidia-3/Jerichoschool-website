@@ -174,7 +174,7 @@ export function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
             <h2 className="text-2xl sm:text-3xl md:text-4xl text-center sm:text-left dark:text-white">Latest from Our Channel</h2>
-            <Link to="/news-events" className="text-blue-900 dark:text-blue-400 font-medium hover:underline flex items-center gap-2 transition-colors duration-300">
+            <Link to="/school/news-events" className="text-blue-900 dark:text-blue-400 font-medium hover:underline flex items-center gap-2 transition-colors duration-300">
               View all updates
             </Link>
           </div>
@@ -218,7 +218,7 @@ export function Home() {
           <p className="text-lg sm:text-xl mb-6 sm:mb-8 text-blue-100">
             Take the first step towards an exceptional education
           </p>
-          <Link to="/apply">
+          <Link to="/school/apply">
             <Button
               size="lg"
               variant="outline"
